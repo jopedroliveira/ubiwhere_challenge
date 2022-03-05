@@ -1,7 +1,7 @@
 version: "3.0"
 services:
   # Deploy PostgreSQL with Postgis db
-  database_montraficdb:
+  database_montraficdb_dev:
     image: postgis/postgis:12-master
     ports:
       - 5432:5432
