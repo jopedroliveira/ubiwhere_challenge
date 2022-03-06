@@ -5,23 +5,23 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
 
-    def initial_create_group_migration(apps, schema_editor):
-        Group = apps.get_model('auth', 'Group')
-        Group.objects.bulk_create([
-            Group(name=u'Admin'),
-            Group(name=u'Guest'),
-        ])
+  def initial_create_group_migration(apps, schema_editor):
+    Group = apps.get_model('auth', 'Group')
+    Group.objects.bulk_create([
+      Group(name=u'Admin'),
+      Group(name=u'Guest'),
+    ])
 
-    def initial_revert_group_migration(apps, schema_editor):
-        Group = apps.get_model('auth', 'Group')
-        Group.objects.filter(
-            name__in=[
-                u'Admin',
-                u'Guest',
-            ]
-        ).delete()
+  def initial_revert_group_migration(apps, schema_editor):
+    Group = apps.get_model('auth', 'Group')
+    Group.objects.filter(
+      name__in=[
+        u'Admin',
+        u'Guest',
+      ]
+    ).delete()
 
-
-    operations = [
-        migrations.RunPython(initial_create_group_migration, initial_revert_group_migration)
-    ]
+  operations = [
+    migrations.RunPython(initial_create_group_migration,
+                         initial_revert_group_migration)
+  ]

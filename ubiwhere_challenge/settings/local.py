@@ -12,14 +12,18 @@ POSTGRES_DB_DEFAULT_PORT = '5432'
 POSTGRES_DB_DEFAULT_NAME = 'montraficdb_dev'
 POSTGRES_DB_DEFAULT_HOST = 'localhost'
 
-
 DATABASES = {
-    'default': {
-            'ENGINE': "django.db.backends.postgresql_psycopg2",
-            'NAME': POSTGRES_DB_DEFAULT_NAME,
-            'USER': POSTGRES_DB_DEFAULT_USER,
-            'PASSWORD': POSTGRES_DB_DEFAULT_PASSWORD,
-            'HOST': POSTGRES_DB_DEFAULT_HOST,
-            'PORT':  POSTGRES_DB_DEFAULT_PORT,
-        }
+  'default': {
+    'ENGINE': "django.contrib.gis.db.backends.postgis",
+    'NAME': POSTGRES_DB_DEFAULT_NAME,
+    'USER': POSTGRES_DB_DEFAULT_USER,
+    'PASSWORD': POSTGRES_DB_DEFAULT_PASSWORD,
+    'HOST': POSTGRES_DB_DEFAULT_HOST,
+    'PORT': POSTGRES_DB_DEFAULT_PORT,
+  }
+}
+
+SIMPLE_JWT = {
+  'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=15),
+  'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=10)
 }
