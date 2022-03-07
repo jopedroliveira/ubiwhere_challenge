@@ -1,2 +1,2 @@
-from .generic import SegmentView
+from .generic import SegmentModelViewSet
 from .users import RegisterView

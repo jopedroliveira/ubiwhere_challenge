@@ -12,4 +12,4 @@ from ..models import Segment
 class SegmentSerializer(serializers.ModelSerializer):
   class Meta:
     model = Segment
-    fields = ("id", "latitude", "longitude", "length", "speed")
+    fields = ("id", "latitude", "longitude", "length")
