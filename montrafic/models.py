@@ -1,7 +1,7 @@
 from django.contrib.gis.db import models
 from django.utils import timezone
 
-INTENSITY_CHARACTERIZATION = {0: "low", 1: "moderate", 2: "high"}
+INTENSITY_CHARACTERIZATION = {'0': "low", '1': "moderate", '2': "high"}
 LOW_THRESHOLD = 50
 HIGH_THRESHOLD = 20
 
@@ -20,10 +20,10 @@ class Speed(models.Model):
   @property
   def intensity(self):
     if self.speed > LOW_THRESHOLD:
-      return 0
+      return '0'
     elif self.speed > HIGH_THRESHOLD:
-      return 1
-    return 2
+      return '1'
+    return '2'
 
   @property
   def characterization(self):
