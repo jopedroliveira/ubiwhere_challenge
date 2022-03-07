@@ -23,14 +23,12 @@ class Command(BaseCommand):
       street_speed = []
       for row in data:
         segment = Segment(
-          # id=row[0],
           longitude=Point(float(row[1]), float(row[3])),
           latitude=Point(float(row[2]), float(row[4])),
           length=row[5],
         )
 
         speed = Speed(
-          # id=row[0],
           speed=float(row[6]),
           segment_id=row[0],
         )
