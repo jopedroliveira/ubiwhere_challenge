@@ -33,7 +33,7 @@ $ python manage.py load_csv trafic_speed.csv --settings=ubiwhere_challenge.setti
 ```
 
 
-### 1. Run Tests (_wip_)
+### 3. Run Tests (_wip_)
 `docker-compose -f docker-compose.test.yml up`
 
 ----
