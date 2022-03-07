@@ -10,6 +10,13 @@ from ..models import Segment
 #   characterization = serializers.CharField()
 
 class SegmentSerializer(serializers.ModelSerializer):
+  intensity = serializers.SerializerMethodField()
+
+  @classmethod
+  def get_intensity(self, obj):
+    return "cooool"
+
   class Meta:
     model = Segment
-    fields = ("id", "latitude", "longitude", "length")
+    read_only_fields = ("intensity",)
+    fields = ["id", "latitude", "longitude", "length", "intensity"]

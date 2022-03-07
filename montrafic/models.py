@@ -6,6 +6,8 @@ class Segment(models.Model):
   latitude = models.PointField(blank=False, null=False)
   length = models.DecimalField(max_digits=15, decimal_places=9)
 
+  def get_lixo(self):
+    return "abx"
 
 class Speed(models.Model):
   segment = models.ForeignKey(Segment, related_name='segment_speed', on_delete=models.PROTECT)
