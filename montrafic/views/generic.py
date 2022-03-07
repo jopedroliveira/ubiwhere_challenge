@@ -37,7 +37,8 @@ class SegmentModelViewSet(ModelViewSet):
       for duplicate in duplicates:
         exclude_list.append(
           Speed.objects.filter(segment=duplicate['segment']).exclude(
-            creation_date=duplicate['max_creation_date']).values_list('id',flat=True))
+            creation_date=duplicate['max_creation_date']).values_list('id',
+                                                                      flat=True))
       speed_query = speed_query.exclude(id__in=exclude_list)
       query = query.filter(segment_speed__in=speed_query)
 

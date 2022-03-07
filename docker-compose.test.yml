@@ -7,8 +7,8 @@ services:
       context: .
       dockerfile: infrastructure/web.Dockerfile
     command: >
-        bash -c "python manage.py migrate --settings=ubiwhere_challenge.settings.production
-        && python manage.py test montrafic.tests --settings=ubiwhere_challenge.settings.tests"
+      bash -c "python manage.py migrate --settings=ubiwhere_challenge.settings.production
+      && python manage.py test montrafic.tests --settings=ubiwhere_challenge.settings.tests"
     volumes:
       - .:/montrafic_tests
     ports:

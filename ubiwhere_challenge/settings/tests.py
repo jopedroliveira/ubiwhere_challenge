@@ -1,5 +1,3 @@
-from .base import *
-
 SECRET_KEY = 'MDJMC*sWGnHt@y^A?hSX5rebtuQhCn8*aVrD@G&jE?R4Z!B!AFG@L5r385843eAfm-'
 DEBUG = True
 LOCAL = True
