@@ -7,18 +7,18 @@ services:
       context: .
       dockerfile: infrastructure/web.Dockerfile
     command: >
-      bash -c "python manage.py migrate --settings=ubiwhere_challenge.settings.production
+      bash -c "python manage.py migrate --settings=ubiwhere_challenge.settings.tests
       && python manage.py test montrafic.tests --settings=ubiwhere_challenge.settings.tests"
     volumes:
       - .:/montrafic_tests
     ports:
       - "8000:8000"
     depends_on:
-      - database_montraficdb
+      - database_montraficdb_test
 
 
   # Deploy PostgreSQL with Postgis db
-  database_montraficdb:
+  database_montraficdb_test:
     image: postgis/postgis:12-master
     ports:
       - 5432:5432
