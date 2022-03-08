@@ -7,7 +7,7 @@ ALLOWED_HOSTS = ['*']
 POSTGRES_DB_DEFAULT_USER = 'montraficdbuser'
 POSTGRES_DB_DEFAULT_PASSWORD = 'montraficdbpassword'
 POSTGRES_DB_DEFAULT_PORT = '5432'
-POSTGRES_DB_DEFAULT_NAME = 'montraficdb'
+POSTGRES_DB_DEFAULT_NAME = 'montraficdb_test'
 POSTGRES_DB_DEFAULT_HOST = 'database_montraficdb_test'
 
 DATABASES = {
