@@ -1,0 +1,31 @@
+version: "3.0"
+
+services:
+  # Deploy Django webserver in developement mode
+  web:
+    build:
+      context: .
+      dockerfile: infrastructure/web.Dockerfile
+    command: >
+      bash -c "python manage.py migrate --settings=ubiwhere_challenge.settings.production
+      && python manage.py test montrafic.tests --settings=ubiwhere_challenge.settings.tests"
+    volumes:
+      - .:/montrafic_tests
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database_montraficdb
+
+
+  # Deploy PostgreSQL with Postgis db
+  database_montraficdb:
+    image: postgis/postgis:12-master
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=montraficdb_test
+      - POSTGRES_USER=montraficdbuser
+      - POSTGRES_PASSWORD:montraficdbpassword
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - .:/test/data/db

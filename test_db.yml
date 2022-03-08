@@ -1,0 +1,15 @@
+version: "2.5"
+
+services:
+  # Deploy PostgreSQL with Postgis db
+  database_default:
+    image: postgis/postgis:12-master
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=montraficdbuser
+      - POSTGRES_PASSWORD:montraficdbpassword
+      - POSTGRES_DB=montraficdb
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - .:/data/db
