@@ -8,22 +8,21 @@ Oliveira ([j.pedrodiasoliveira@gmail.com](mailto:j.pedrodiasoliveira@gmail.com))
 [Postman documentation](https://documenter.getpostman.com/view/19883671/UVsEV8w9)
 
 ----
+### Quick Start
 
-#### TL;DR
-
-### 1. Start Server
+#### 1. Start Server
 
 ```
 $ docker-compose up
 ```
 
-### 2. Load data and create a super-user
+#### 2. Load data and create a super-user
 
 ```
 $ docker exec -it ubiwhere_challenge_web_1 /bin/bash
 ```
 
-#### Inside the container
+##### Inside the container
 
 - Activate virtual environment
 
@@ -43,11 +42,21 @@ $ python manage.py createsuperuser --settings=ubiwhere_challenge.settings.produc
 $ python manage.py load_csv trafic_speed.csv --settings=ubiwhere_challenge.settings.production
 ```
 
-### 3. Run Tests (_wip_)
+#### 3. Run Tests (_wip_)
 
 `docker-compose -f docker-compose.test.yml up`
 
 ----
+
+### Troubleshooting
+Due to a known limitation on `docker-compose` file, the server startup may stuck
+on the first run, showing a database connection failure error.
+That's because the database is created in for the first time and it takes longer
+than the django server to startup. Althtough the `docker-compose` is configured 
+with the `depends-on` setting, it may fail.
+
+**Solution**: after the database creation is complete, just stop and start again
+the docker-compose so both server and database containers can be properly initialized.
 
 ## Project description
 This project implements an API using  Django Rest Framework that allows 
