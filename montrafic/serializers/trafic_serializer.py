@@ -1,9 +1,7 @@
-from django.contrib.auth.models import User
-from django.contrib.auth.password_validation import validate_password
 from rest_framework import serializers
-from rest_framework.validators import UniqueValidator
 
 from ..models import Segment, Speed
+
 
 class SegmentSerializer(serializers.ModelSerializer):
   intensity = serializers.SerializerMethodField()
@@ -30,11 +28,11 @@ class SegmentSerializer(serializers.ModelSerializer):
   class Meta:
     model = Segment
     read_only_fields = ("intensity", "characterization")
-    fields = ["id", "latitude", "longitude", "length", "intensity", "characterization"]
+    fields = ["id", "latitude", "longitude", "length", "intensity",
+              "characterization"]
 
 
 class SpeedSerializer(serializers.ModelSerializer):
-
   class Meta:
     model = Speed
     fields = ["id", "segment", "speed", "creation_date"]

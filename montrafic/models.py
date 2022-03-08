@@ -13,9 +13,11 @@ class Segment(models.Model):
 
 
 class Speed(models.Model):
-  segment = models.ForeignKey(Segment, related_name='segment_speed', on_delete=models.PROTECT)
+  segment = models.ForeignKey(Segment, related_name='segment_speed',
+                              on_delete=models.PROTECT)
   speed = models.DecimalField(max_digits=15, decimal_places=12)
-  creation_date = models.DateTimeField(default=timezone.now, blank=False, null=False)
+  creation_date = models.DateTimeField(default=timezone.now, blank=False,
+                                       null=False)
 
   @property
   def intensity(self):

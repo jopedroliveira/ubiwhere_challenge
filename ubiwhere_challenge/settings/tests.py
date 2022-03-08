@@ -12,7 +12,7 @@ POSTGRES_DB_DEFAULT_HOST = 'database_montraficdb_test'
 
 DATABASES = {
   'default': {
-    'ENGINE': "django.db.backends.postgresql_psycopg2",
+    'ENGINE': "django.contrib.gis.db.backends.postgis",
     'NAME': POSTGRES_DB_DEFAULT_NAME,
     'USER': POSTGRES_DB_DEFAULT_USER,
     'PASSWORD': POSTGRES_DB_DEFAULT_PASSWORD,
