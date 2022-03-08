@@ -59,6 +59,43 @@ In order to be able to perform **PUT/POST/DELETE** operations, the user must bel
 to the **_Admin_** group. The promotion is performed by a superuser through 
 [django admin panel](http://localhost/admin). 
 
+
+## Running the project in development mode
+
+#### Django environment
+1. Install Python3.7
+2. Install [Python Pip](https://pip.pypa.io/en/stable/installation/)
+3. Create a virtualenvironemnt
+```
+$ python3 -m venv venv
+```
+3. Activate environment 
+```
+$ source venv/bin/activate
+```
+4. Install project requirements
+```
+$ pip install -m requirements.txt
+```
+5. Start database (dockerized)
+```
+$ docker-compose -f docker-compose.dev.yml
+```
+6. Run database migrations
+```
+$ python manage.py migrate --settings=ubiwhere_challenge.settings.local
+```
+6. Load seed data
+```
+$ python manage.py load_csv trafic_speed.csv --settings=ubiwhere_challenge.settings.local
+```
+7. Run the server
+```
+$ python manage.py runserver --settings=ubiwhere_challenge.settings.local
+```
+
+---
+
 ### Project notes
 _This notes does not follow a specific order and may not be related to each other_
 
